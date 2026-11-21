@@ -1,0 +1,122 @@
+services:
+  # 1. Products File Persistence
+  - type: web
+    name: file-persistent-app
+    runtime: node
+    plan: free
+    rootDir: File-persistent-app
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+
+  # 2. MongoDB Express
+  - type: web
+    name: mongodb-express-app
+    runtime: node
+    plan: free
+    rootDir: mongodb-express-app
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URL
+        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+      - key: DB_NAME
+        value: booksDB
+
+  # 3. MongoDB Mongoose Movies
+  - type: web
+    name: mongodb-mongoose-movies-app
+    runtime: node
+    plan: free
+    rootDir: mongoose_express_app
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URL
+        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+      - key: DB_NAME
+        value: movieDB
+
+  # 4. MVC Auth
+  - type: web
+    name: mvc-auth-app
+    runtime: node
+    plan: free
+    rootDir: mvc_auth_app
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URL
+        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+      - key: DB_NAME
+        value: authDB
+      - key: JWT_SECRET
+        value: default_jwt_secret_dev_key_12345
+
+  # 5. MVC Express
+  - type: web
+    name: mvc-express-app
+    runtime: node
+    plan: free
+    rootDir: mvc_express_app
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URL
+        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+      - key: DB_NAME
+        value: movieDB
+
+  # 6. Template Engine EJS
+  - type: web
+    name: template-engine-ejs-app
+    runtime: node
+    plan: free
+    rootDir: template-engine-ejs-app
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+      - key: DB_NAME
+        value: productsDB
+
+  # 7. MERN CRUD Backend (Express Middleware API)
+  - type: web
+    name: express-middleware-api
+    runtime: node
+    plan: free
+    rootDir: express_middleware_api
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+
+  # 7b. MERN CRUD Backend (Posts API for MERN Stack)
+  - type: web
+    name: mern-crud-backend
+    runtime: node
+    plan: free
+    rootDir: mern-crud-app/mern-crud-app-main/backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        value: mongodb+srv://deepikaarugalla_db_user:CTwGuWP9yQWmDb3p@cluster0.wvbmzxj.mongodb.net
+      - key: DB_NAME
+        value: mernDB

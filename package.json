@@ -1,0 +1,12 @@
+{
+  "name": "dear-fsd",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "DearFSD – Full Stack Development Lab",
+  "scripts": {
+    "deploy:vercel": "node deploy-vercel.js",
+    "clean:readme": "node deploy-vercel.js --sync",
+    "login:vercel": "npx vercel login",
+    "logout:vercel": "npx vercel logout"
+  }
+}
